@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fetch関数でAPIを叩く</title>
+
+</head>
+
+<body>
+
+<h2>Fetch関数でAPIを叩く</h2>
+
+<p id="log">取得中</p>
+
+
+
+<script>
+
+// APIからユーザー情報を取得
+
+fetch("https://jsonplaceholder.typicode.com/users/1")
+
+
+
+.then(response => response.json()) // fetchで受け取った情報をresponseという変数にした。
+
+.then(data => {
+
+document.getElementById("log").textContent = "名前:" + data.name;
+
+}) // response.jsonをdataに変換し、その中にdataを使用した関数を実行した
+
+</script>
+
+</body>
+
+</html>
+

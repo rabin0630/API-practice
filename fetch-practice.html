@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch関数でAPIを叩く</title>
+</head>
+<body>
+  <h2>郵便番号API</h2>
+  <button id="btn">検索</button>
+  <input type="number" minlength="7" maxlength="7" id="number">
+  <br>
+<table border="1">
+    <tr>
+      <td>郵便番号</td>
+      <td class="zipcode"></td>
+    </tr>
+    <tr>
+      <td>都道府県</td>
+      <td class="address1"></td>
+    </tr>
+    <tr>
+      <td>市区町村</td>
+      <td class="address2"></td>
+    </tr>
+    <tr>
+      <td>町域</td>
+      <td class="address3"></td>
+    </tr>
+  </table>
+
+  <script>
+    const btn = document.querySelector("#btn");
+    const log = document.querySelector("#log");
+    const number = document.querySelector("#number");
+    const zipcodeCell = document.querySelector(".zipcode");
+    const address1Cell = document.querySelector(".address1");
+    const address2Cell = document.querySelector(".address2");
+    const address3Cell = document.querySelector(".address3");
+
+
+    const status_preview= () => {
+      const zipcode = number.value;
+      const url = `https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zipcode}`
+
+      fetch(url)
+      .then(res => res.json()) // then = (res) = {return res.json()}
+      .then(data => {
+        const results = data.results[0]
+        zipcodeCell.textContent = zipcode;
+        address1Cell.textContent = results.address1;
+        address2Cell.textContent = results.address2;
+        address3Cell.textContent = results.address3;
+      
+      });
+      };
+
+
+    btn.addEventListener("click",status_preview)
+  </script>
+</body>
+</html>
