@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch関数でAPIを叩く</title>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body class="bg-gray-200 min-h-screen flex items-center justify-center p-4">
+
+  <div class="wrapper bg-white w-full max-w-2xl py-20 rounded-3xl shadow-sm flex flex-col items-center border border-gray-100">
+    
+    <h2 class="text-5xl font-extrabold mb-10 text-red-600">郵便番号API</h2>
+
+    <div class="flex gap-2 mb-8 w-full max-w-sm px-4">
+      <input 
+        type="number" 
+        id="number" 
+        placeholder="郵便番号7桁"
+        class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300 bg-white text-black font-light"
+      >
+      <button 
+        id="btn" 
+        class="px-6 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors"
+      >
+        検索
+      </button>
+    </div>
+
+    <table class="w-full max-w-sm border-separate border-spacing-0 border border-gray-300 bg-white shadow-lg rounded-lg overflow-hidden mx-4">
+      <tbody class="text-black">
+        <tr>
+          <td class="px-4 py-3 bg-gray-50 font-semibold w-1/3 text-sm border-b border-r border-gray-300">郵便番号</td>
+          <td class="px-4 py-3 zipcode text-sm border-b border-gray-300 font-light"></td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 bg-gray-50 font-semibold text-sm border-b border-r border-gray-300">都道府県</td>
+          <td class="px-4 py-3 address1 text-sm border-b border-gray-300 font-light"></td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 bg-gray-50 font-semibold text-sm border-b border-r border-gray-300">市区町村</td>
+          <td class="px-4 py-3 address2 text-sm border-b border-gray-300 font-light"></td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 bg-gray-50 font-semibold text-sm border-r border-gray-300">町域</td>
+          <td class="px-4 py-3 address3 text-sm font-light"></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</body>
+</html>
