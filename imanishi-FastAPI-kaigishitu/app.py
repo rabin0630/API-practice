@@ -80,14 +80,14 @@ elif page == "bookings":
         day=date.day,
         hour=start_time.hour,
         minute=start_time.minute
-      ),
+      ).isoformat(),
       "end_datetime": datetime.datetime(
         year=date.year,
         month=date.month,
         day=date.day,
         hour=end_time.hour,
         minute=end_time.minute
-      ),
+      ).isoformat(),
     }
     submit_button = st.form_submit_button(label="リクエスト送信")
 
