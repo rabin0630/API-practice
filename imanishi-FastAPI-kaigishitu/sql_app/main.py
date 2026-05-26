@@ -20,7 +20,7 @@ def get_db():
     db.close()
 
 # CORS設定を追加
-app.add_middleware(
+app.add_middleware( 
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,

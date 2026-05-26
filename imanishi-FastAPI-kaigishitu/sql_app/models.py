@@ -6,18 +6,18 @@ from .database import Base
 # テーブル設計をする
 ## 細かい設定はsqlalchemyで調べる
 class User(Base):   #定義の仕方はapp.pyと似ている
-  __tablename__ = "users"
+  __tablename__ = "users" # テーブル名
   user_id = Column(Integer, primary_key=True, index=True)  ### primari_keyは勝手に決まる
   username = Column(String, unique=True, index=True)
 
 class Room(Base):
-  __tablename__ = "rooms"
+  __tablename__ = "rooms" # テーブル名
   room_id = Column(Integer,primary_key=True, index=True)
   roomname = Column(String,unique=True, index=True)# Field(max_length=12)
   capacity = Column(Integer, index=True)
 
 class Booking(Base):
-  __tablename__ = "bookings"
+  __tablename__ = "bookings" # テーブル名
   booking_id = Column(Integer,primary_key=True, index=True)
   user_id = Column(Integer,ForeignKey("users.user_id",ondelete="SET NULL"), nullable=False, index=True)
   room_id = Column(Integer,ForeignKey("rooms.room_id",ondelete="SET NULL"), nullable=False, index=True)
